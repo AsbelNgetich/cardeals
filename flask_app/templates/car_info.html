@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Car information
+{% endblock %}
+
+{% block content %}
+{#
+        <div class="carinfo">
+            <div class="car_description">
+              
+                <h3>price: ${{car.price}}</h3>
+                <p>Model: {{car.model}}</p>
+                <p>Make: {{car.make}}</p>
+                <p>Year: {{car.year}}</p>
+                <p>Description:</p>
+                <p id="car_description_contents">{{car.description}}</p>
+
+                {% for info in user %}
+                <div class = "buy_car">
+                    <p>Seller:{{info['first_name']}} {{info['last_name']}}</p>
+                    <!-- <a href="/cars/delete/{{car.id}}">Purchase</a> -->
+                    <form action="/cars/delete/{{car.id}}">
+                        <input type="submit" value="Purchase" />
+                    </form>
+
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    #}
+
+  <div class="container car-info">
+    <div class="left-car-info">
+      <img src="https://images.unsplash.com/photo-1625773049545-fb23fc4f4538?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" class="img-fluid" alt="car image">
+    </div>
+    <div class="right-car-info">
+      <h3>${{car.price}}</h3>
+      <p>Model: {{car.model}}</p>
+      <p>Make: {{car.make}}</p>
+      <p>Year: {{car.year}}</p>
+      <p>Description:</p>
+      <p id="car_description_contents">{{car.description}}</p>
+    </div>
+  </div>
+  <div class="container" style="margin-top: 2%; margin-left: 11%;">
+    <form action="/cars/delete/{{car.id}}">
+      <input type="submit" value="Purchase" />
+    </form>
+  </div>
+        
+{% endblock %}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet"  href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Login page</title>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid">
+            
+              <h1 class="display-4" style="color: white;">Car Dealz</h1>
+              <p style="text-align: center; color: white;" class="lead">Welcome to car deals, where you could find the best car deals in town.</p>
+            
+          </div>
+    </div>
+    <div class="container_login">
+        <div class="user_forms">
+            <div class="registration_form">
+                <h2>Register</h2>
+                <form class="add_user" action="/register" method="POST">
+                    <label for="first_name">First Name:</label>
+                    <input type="text" name="first_name">
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" name="last_name">
+                    <label for="email">Email:</label>
+                    <input type="text" name="email">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password">
+                    <label for="confirm_password">Confirm Password:</label>
+                    <input type="password" name="confirm_password">
+                    <input id="submit_btn" type="submit" value="Register">  
+                </form>
+            </div>
+
+            <div class="login_form">             
+                <h2>Login</h2>
+                <form class="login" action="/login" method="POST">
+                    <label for="email">Email:</label>
+                    <input type="text" name="email">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password">
+                    <input id="submit_btn" type="submit" value="Login">  
+                </form>
+            </div>
+        </div>
+        {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+            {% if messages %}                            <!-- check if there are any messages -->
+                {% for message in messages %}            <!-- loop through the messages -->
+                    <p id="error_messages">{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+
+
+    </div>
+    <!-- Footer -->
+<footer class="page-footer font-small blue">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2021 Copyright:
+      <a href="https://login_page.html/" style="color: black; text-decoration: underline;"> Greatcardealz.com</a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+    
+</body>
+</html>

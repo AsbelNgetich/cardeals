@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Add Car
+{% endblock %}
+
+{% block content %} 
+
+<h3 style="text-align: center; margin-top:50px; margin-bottom: 50px;">Sale Car </h3>
+<div class="container" id="container_addcar">
+    <div >
+        <form action="/cars/create" method="POST">
+            <div class="form-group" id="create_car">
+                <!-- <input type="hidden" name="id"> -->
+                <label for="price">Price</label>
+                <input type="number" name="price" class="form-control" required>
+                <label for="model">Model</label>
+                <input type="text" name="model" class="form-control">
+                <label for="make">Make</label>
+                <input type="text" name="make" class="form-control">
+                <label for="year">Year</label>
+                <input type="number" name="year" class="form-control">
+                <label for="description">Description:</label>
+                <textarea name="description" id="" cols="30" rows="6" class="form-control"></textarea>
+            <div >
+                <input type="submit" value="Add" style="margin-top:15px;">     
+            </div>
+            </div>
+        </form>
+    
+    {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+        {% if messages %}                            <!-- check if there are any messages -->
+            {% for message in messages %}            <!-- loop through the messages -->
+                <p id="error_messages">{{message}}</p>                   <!-- display each message in a paragraph tag -->
+            {% endfor %}
+        {% endif %}
+    {% endwith %}  
+    </div> 
+    <div id="car_image">
+        <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80" class="img-fluid" alt="car image">
+    </div>
+
+
+</div>
+
+{% endblock %}
+
